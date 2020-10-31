@@ -1,0 +1,39 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Lista de tipo de activo</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let asset of assets; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveAssets(asset, i)">
+                {{ asset.name }} {{ asset.description }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentAsset">
+            <h4>Tipos de activos</h4>
+            <div>
+                <label><strong>Id:</strong></label> {{ currentAsset.id }}
+            </div>
+            <div>
+                <label><strong>Nombre:</strong></label> {{ currentAsset.name }}
+            </div>
+            <div>
+                <label><strong>Descripción:</strong></label>
+                {{ currentAsset.description }}
+            </div>
+            <div>
+                <label><strong>Estado:</strong></label>
+                {{ currentAsset.state ? "Activo" : "Inactivo" }}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/assets/{{ currentAsset.id }}">
+                Editar
+            </a>
+        </div>
+
+        <div *ngIf="!currentAsset">
+            <br />
+            <p>Click en un producto...</p>
+        </div>
+    </div>
+</div>

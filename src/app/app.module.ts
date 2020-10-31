@@ -8,13 +8,19 @@ import { AppComponent } from './app.component';
 import { ListWorkerComponent } from './components/worker/list-worker/list-worker.component';
 import { AddWorkerComponent } from './components/worker/add-worker/add-worker.component';
 import { DetailWorkerComponent } from './components/worker/detail-worker/detail-worker.component';
+import { ListAssetComponent } from './components/asset/list-asset/list-asset.component';
+import { AddAssetComponent } from './components/asset/add-asset/add-asset.component';
+import { DetailAssetComponent } from './components/asset/detail-asset/detail-asset.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListWorkerComponent,
     AddWorkerComponent,
-    DetailWorkerComponent
+    DetailWorkerComponent,
+    ListAssetComponent,
+    AddAssetComponent,
+    DetailAssetComponent
   ],
   imports: [
     BrowserModule,
