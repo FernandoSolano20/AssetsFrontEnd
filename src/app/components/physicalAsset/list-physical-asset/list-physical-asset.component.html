@@ -45,6 +45,23 @@
             <a class="badge badge-warning" routerLink="/physicalAssets/{{ currentPhysicalAsset.id }}">
                 Editar
             </a>
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">Trabajadores asignados</th>
+                    </tr>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let worker of currentPhysicalAsset.assignAssetsWorkers">
+                    <tr>
+                        <th>{{worker.worker.name}}</th>
+                        <th>{{worker.worker.lastName}}</th>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
         <div *ngIf="!currentPhysicalAsset">
