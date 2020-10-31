@@ -45,14 +45,14 @@
             <a class="badge badge-warning" routerLink="/physicalAssets/{{ currentPhysicalAsset.id }}">
                 Editar
             </a>
-            <table>
-                <thead>
+            <table class="table">
+                <thead class="thead-dark">
                     <tr>
-                        <th colspan="2">Trabajadores asignados</th>
+                        <th scope="col" colspan="2">Trabajadores asignados</th>
                     </tr>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellido</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let worker of currentPhysicalAsset.assignAssetsWorkers">

@@ -15,6 +15,7 @@ import { ListPhysicalAssetComponent } from './components/PhysicalAsset/list-phys
 import { AddPhysicalAssetComponent } from './components/physicalAsset/add-physical-asset/add-physical-asset.component';
 import { DetailPhysicalAssetComponent } from './components/physicalAsset/detail-physical-asset/detail-physical-asset.component';
 import { AssignPhysicalAssetComponent } from './components/physicalAsset/assign-physical-asset/assign-physical-asset.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AssignPhysicalAssetComponent } from './components/physicalAsset/assign-
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
