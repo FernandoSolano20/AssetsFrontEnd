@@ -11,6 +11,10 @@ import { DetailWorkerComponent } from './components/worker/detail-worker/detail-
 import { ListAssetComponent } from './components/asset/list-asset/list-asset.component';
 import { AddAssetComponent } from './components/asset/add-asset/add-asset.component';
 import { DetailAssetComponent } from './components/asset/detail-asset/detail-asset.component';
+import { ListPhysicalAssetComponent } from './components/PhysicalAsset/list-physical-asset/list-physical-asset.component';
+import { AddPhysicalAssetComponent } from './components/physicalAsset/add-physical-asset/add-physical-asset.component';
+import { DetailPhysicalAssetComponent } from './components/physicalAsset/detail-physical-asset/detail-physical-asset.component';
+import { AssignPhysicalAssetComponent } from './components/physicalAsset/assign-physical-asset/assign-physical-asset.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,11 @@ import { DetailAssetComponent } from './components/asset/detail-asset/detail-ass
     DetailWorkerComponent,
     ListAssetComponent,
     AddAssetComponent,
-    DetailAssetComponent
+    DetailAssetComponent,
+    ListPhysicalAssetComponent,
+    AddPhysicalAssetComponent,
+    DetailPhysicalAssetComponent,
+    AssignPhysicalAssetComponent
   ],
   imports: [
     BrowserModule,

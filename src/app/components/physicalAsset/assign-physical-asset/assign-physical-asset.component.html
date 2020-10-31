@@ -1,0 +1,55 @@
+<div style="width: 400px; margin: auto;">
+    <div class="edit-form">
+      <h4>Asignar Activo Fisico a Trabajador</h4>
+      <form>
+        <div class="form-group">
+            <label for="asset">Activo Fisico</label>
+            <select
+              class="form-control"
+              id="asset"
+              required
+              name="asset"
+              [(ngModel)]="assignAssetsWorker.physicalAsset.id">
+              <option *ngFor="let physicalAsset of physicalAssets" [ngValue]="physicalAsset.id">{{physicalAsset.name}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="worker">Trabajador</label>
+            <select
+              class="form-control"
+              id="worker"
+              required
+              name="worker"
+              [(ngModel)]="assignAssetsWorker.worker.id">
+              <option *ngFor="let worker of workers" [ngValue]="worker.id">{{worker.name}} {{worker.lastName}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="asignDate">Fecha de asignacion</label>
+            <input
+            type="date"
+              class="form-control"
+              id="asignDate"
+              [(ngModel)]="assignAssetsWorker.date"
+              name="asignDate"
+            />
+          </div>
+  
+      </form>
+  
+      <button (click)="saveAssignWorkerToAsset()" class="btn btn-success">Enviar</button>
+  
+    </div>
+
+    <div *ngIf="submitted">
+        <h4>Enviado correctamente!</h4>
+      </div>
+
+    <div *ngIf="error">
+      <br />
+      <h4>Error</h4>
+    </div>
+  </div>
+  

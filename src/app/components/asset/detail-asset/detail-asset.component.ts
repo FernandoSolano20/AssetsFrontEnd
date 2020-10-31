@@ -42,7 +42,7 @@ export class DetailAssetComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.message = 'El trabajador fue actualizado!';
+          this.message = 'El tipo de activo fue actualizado!';
         },
         error => {
           console.log(error);

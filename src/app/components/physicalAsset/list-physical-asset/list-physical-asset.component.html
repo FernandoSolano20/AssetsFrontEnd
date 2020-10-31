@@ -1,0 +1,55 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Lista de activos físicos</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let physicalAsset of physicalAssets; let i = index"
+                [class.active]="i == currentIndex" (click)="setActivePhysicalAsset(physicalAsset, i)">
+                {{ physicalAsset.name }} {{ physicalAsset.description }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentPhysicalAsset">
+            <h4>Activos físicos</h4>
+            <div>
+                <label><strong>Id:</strong></label> {{ currentPhysicalAsset.id }}
+            </div>
+            <div>
+                <label><strong>Nombre:</strong></label> {{ currentPhysicalAsset.name }}
+            </div>
+            <div>
+                <label><strong>Descripción:</strong></label>
+                {{ currentPhysicalAsset.description }}
+            </div>
+            <div>
+                <label><strong>Año:</strong></label>
+                {{ currentPhysicalAsset.year }}
+            </div>
+            <div>
+                <label><strong>Cantidad:</strong></label>
+                {{ currentPhysicalAsset.quantity }}
+            </div>
+            <div>
+                <label><strong>Asignados:</strong></label>
+                {{ currentPhysicalAsset.assignedAssets }}
+            </div>
+            <div>
+                <label><strong>Estado:</strong></label>
+                {{ currentPhysicalAsset.state ? "Activo" : "Inactivo" }}
+            </div>
+            <div>
+                <label><strong>Tipo de activo:</strong></label>
+                {{ currentPhysicalAsset.asset }}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/physicalAssets/{{ currentPhysicalAsset.id }}">
+                Editar
+            </a>
+        </div>
+
+        <div *ngIf="!currentPhysicalAsset">
+            <br />
+            <p>Click en un producto...</p>
+        </div>
+    </div>
+</div>

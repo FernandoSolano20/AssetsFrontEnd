@@ -1,0 +1,93 @@
+<div style="width: 400px; margin: auto;">
+    <div class="submit-form">
+      <div *ngIf="!submitted">  
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="physicalAsset.name"
+            name="name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="description">Descripción</label>
+          <input
+            class="form-control"
+            id="description"
+            required
+            [(ngModel)]="physicalAsset.description"
+            name="description"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="year">Año</label>
+          <input
+          type="text"
+            class="form-control"
+            id="year"
+            [(ngModel)]="physicalAsset.year"
+            name="year"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Cantidad</label>
+            <input
+            type="text"
+              class="form-control"
+              id="quantity"
+              [(ngModel)]="physicalAsset.quantity"
+              name="quantity"
+            />
+          </div>
+  
+        <div class="form-group">
+          <p>Estado</p>
+          <label for="active">Activo</label>
+          <input type="radio"
+            class="form-control"
+            id="active"
+            [(ngModel)]="physicalAsset.state"
+            name="state"
+            value="1"
+          />
+          <label for="inactive">Inactivo</label>
+          <input type="radio"
+            class="form-control"
+            id="inactive"
+            [(ngModel)]="physicalAsset.state"
+            name="state"
+            value="0"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="assetId">Tipo de activo</label>
+          <select
+            class="form-control"
+            id="assetId"
+            required
+            name="assetId"
+            [(ngModel)]="physicalAsset.assetId.id">
+            <option *ngFor="let asset of assets" [ngValue]="asset.id">{{asset.name}}</option>
+          </select>
+        </div>
+  
+        <button (click)="savePhysicalAsset()" class="btn btn-success">Enviar</button>
+      </div>
+  
+      <div *ngIf="submitted">
+        <h4>Enviado correctamente!</h4>
+        <button class="btn btn-success" (click)="newPhysicalAsset()">Agregar</button>
+      </div>
+      
+      <div *ngIf="error">
+        <h4>Error!</h4>
+      </div>
+    </div>
+  </div>
+  
