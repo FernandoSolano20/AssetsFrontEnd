@@ -1,0 +1,43 @@
+<div class="list row">
+    <div class="col-md-6">
+        <h4>Lista de trabajadores</h4>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let worker of workers; let i = index"
+                [class.active]="i == currentIndex" (click)="setActiveWorkers(worker, i)">
+                {{ worker.name }} {{ worker.lastName }}
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <div *ngIf="currentWorker">
+            <h4>Trabajadores</h4>
+            <div>
+                <label><strong>Id:</strong></label> {{ currentWorker.id }}
+            </div>
+            <div>
+                <label><strong>Nombre:</strong></label> {{ currentWorker.name }}
+            </div>
+            <div>
+                <label><strong>Segundo Apellido:</strong></label>
+                {{ currentWorker.lastName }}
+            </div>
+            <div>
+                <label><strong>Fecha de nacimiento:</strong></label>
+                {{ currentWorker.birthday }}
+            </div>
+            <div>
+                <label><strong>Estado:</strong></label>
+                {{ currentWorker.state ? "Activo" : "Inactivo" }}
+            </div>
+
+            <a class="badge badge-warning" routerLink="/workers/{{ currentWorker.id }}">
+                Editar
+            </a>
+        </div>
+
+        <div *ngIf="!currentWorker">
+            <br />
+            <p>Click en un producto...</p>
+        </div>
+    </div>
+</div>
