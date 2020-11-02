@@ -31,6 +31,11 @@ export class AddWorkerComponent implements OnInit {
       state: this.worker.state
     };
 
+    if (!data.name || !data.lastName || !data.birthday || !data.state) {
+      this.error = true;
+      return;
+    }
+    this.error = false;
     this.workerService.create(data)
       .subscribe(
         response => {

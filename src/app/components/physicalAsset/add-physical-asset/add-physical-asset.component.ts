@@ -18,7 +18,7 @@ export class AddPhysicalAssetComponent implements OnInit {
     assignedAssets: 0,
     state: 0,
     assetId: {
-      id : 0
+      id: 0
     }
   };
   submitted = false;
@@ -57,12 +57,18 @@ export class AddPhysicalAssetComponent implements OnInit {
         id: this.physicalAsset.assetId.id
       }
     };
+
+    if (!data.name || !data.description || !data.year || !data.quantity || !data.state || !data.state || !data.assetId.id) {
+      this.error = true;
+      return;
+    }
     this.error = false;
+
     this.physicalAssetService.create(data)
       .subscribe(
         response => {
           console.log(response);
-          if(!response){
+          if (!response) {
             this.error = true;
             return;
           }
@@ -84,7 +90,7 @@ export class AddPhysicalAssetComponent implements OnInit {
       assignedAssets: 0,
       state: 0,
       assetId: {
-        id : 0
+        id: 0
       }
     };
   }

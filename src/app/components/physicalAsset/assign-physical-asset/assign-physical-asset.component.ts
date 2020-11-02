@@ -59,20 +59,26 @@ export class AssignPhysicalAssetComponent implements OnInit {
 
   saveAssignWorkerToAsset(): void {
     const data = {
-      "worker":{
-          "id": this.assignAssetsWorker.worker.id
+      "worker": {
+        "id": this.assignAssetsWorker.worker.id
       },
-      "physicalAsset":{
-          "id": this.assignAssetsWorker.physicalAsset.id
+      "physicalAsset": {
+        "id": this.assignAssetsWorker.physicalAsset.id
       },
       "date": this.assignAssetsWorker.date
-  };
+    };
+
+    if (!data.worker.id || !data.physicalAsset.id || !data.date) {
+      this.error = true;
+      return;
+    }
     this.error = false;
+
     this.physicalAssetService.assignWorker(data)
       .subscribe(
         response => {
           console.log(response);
-          if(!response){
+          if (!response) {
             this.error = true;
             return;
           }

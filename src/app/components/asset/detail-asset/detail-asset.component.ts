@@ -38,6 +38,13 @@ export class DetailAssetComponent implements OnInit {
 
   updateAsset(): void {
     this.error = false;
+
+    if(!this.currentAsset.name || !this.currentAsset.description || !this.currentAsset.state){
+      this.error = true;
+      return;
+    }
+    this.error = false;
+    
     this.assetService.update(this.currentAsset.id, this.currentAsset)
       .subscribe(
         response => {

@@ -38,6 +38,13 @@ export class DetailWorkerComponent implements OnInit {
 
   updateWorker(): void {
     this.error = false;
+
+    if (!this.currentWorker.name || !this.currentWorker.lastName || !this.currentWorker.birthday || !this.currentWorker.state) {
+      this.error = true;
+      return;
+    }
+    this.error = false;
+    
     this.workerService.update(this.currentWorker.id, this.currentWorker)
       .subscribe(
         response => {

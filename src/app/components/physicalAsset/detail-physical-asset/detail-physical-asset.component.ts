@@ -53,7 +53,16 @@ export class DetailPhysicalAssetComponent implements OnInit {
   }
 
   updatePhysicalAsset(): void {
+
+    if (!this.currentPhysicalAsset.name || !this.currentPhysicalAsset.description 
+      || !this.currentPhysicalAsset.year || !this.currentPhysicalAsset.quantity 
+      || !this.currentPhysicalAsset.state || !this.currentPhysicalAsset.state 
+      || !this.currentPhysicalAsset.assetId.id) {
+      this.error = true;
+      return;
+    }
     this.error = false;
+
     this.physicalAssetService.update(this.currentPhysicalAsset.id, this.currentPhysicalAsset)
       .subscribe(
         response => {

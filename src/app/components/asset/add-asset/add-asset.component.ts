@@ -29,6 +29,12 @@ export class AddAssetComponent implements OnInit {
       state: this.asset.state
     };
 
+    if(!data.name || !data.description || !data.state){
+      this.error = true;
+      return;
+    }
+    this.error = false;
+    
     this.assetService.create(data)
       .subscribe(
         response => {
