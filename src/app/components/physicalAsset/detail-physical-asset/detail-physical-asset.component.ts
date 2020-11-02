@@ -12,6 +12,7 @@ export class DetailPhysicalAssetComponent implements OnInit {
 
   currentPhysicalAsset = null;
   message = '';
+  messageError = '';
   error = false;
   assets: any;
 
@@ -75,6 +76,8 @@ export class DetailPhysicalAssetComponent implements OnInit {
         },
         error => {
           console.log(error);
+          error = true;
+          this.messageError = 'Error con la activacion del tipo de activo';
         });
   }
 
