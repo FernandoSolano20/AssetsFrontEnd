@@ -9,6 +9,7 @@ import { WorkerService } from 'src/app/services/Worker/worker.service';
 })
 export class AssignPhysicalAssetComponent implements OnInit {
 
+  message;
   workers: any;
   physicalAssets: any;
   assignAssetsWorker = {
@@ -82,10 +83,13 @@ export class AssignPhysicalAssetComponent implements OnInit {
             this.error = true;
             return;
           }
+          this.message = '';
           this.submitted = true;
         },
         error => {
           console.log(error);
+          error = true;
+          this.message = 'Error con la activacion del activo fisico o trabajador, ver activacion o cantidad de de trabjadores asignados';
         });
   }
 }

@@ -24,6 +24,7 @@ export class AddPhysicalAssetComponent implements OnInit {
   submitted = false;
   error = false;
   assets: any;
+  message = '';
 
   constructor(
     private physicalAssetService: PhysicalAssetService,
@@ -72,9 +73,12 @@ export class AddPhysicalAssetComponent implements OnInit {
             this.error = true;
             return;
           }
+          this.message = '';
           this.submitted = true;
         },
         error => {
+          error = true;
+          this.message = 'Error con la activacion del tipo de activo';
           console.log(error);
         });
   }
